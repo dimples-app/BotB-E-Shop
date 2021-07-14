@@ -5,8 +5,11 @@ import {Card, CardMedia, CardContent, CardActions, Typography, IconButton } from
 import { AddShoppingCart } from '@material-ui/icons'
 import { classExpression } from '@babel/types'
 
+import useStyles from './styles';
+
 const Product = (props) => {
     const {product} = props;
+    const classes = useStyles();
     return (
         <Card className={classes.root}>
             <CardMedia className={classes.media} image='' title={Product.name} />
