@@ -11,7 +11,7 @@ const Product = (props) => {
     const classes = useStyles();
     return (
         <Card className={classes.root}>
-            <CardMedia className={classes.media} image='' title={product.name} />
+            <CardMedia className={classes.media} image={product.image} title={product.name} />
             <CardContent>
                 <div className={classes.cardContent}>
                     <Typography variant="h5" gutterButton>
@@ -20,7 +20,7 @@ const Product = (props) => {
                     <Typography variant="h5" gutterButton>
                         {product.price}
                     </Typography>
-                    <Typography variant="h2" color='textSecondary'>
+                    <Typography variant="body2" color='textSecondary'>
                         {product.description}
                     </Typography>
                 </div>
