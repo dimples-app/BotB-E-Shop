@@ -1,13 +1,14 @@
 import React from 'react';
-import {Grid}from '@material-ui/core'
+import {Grid} from '@material-ui/core'
+import Product from './Product/Product'
 
 const products = [
     {id: 1, name: 'Shoes', description: 'Running shoes', price: `$10`},
     {id: 1, name: 'Sandals', description: 'Wedding Sandal', price: `$20`},
 ]
 const Products = () => {
-    
-    <main>
+    return (
+        <main>
         <Grid container justify="center" spacing={4}>
             {
                 products.map((product) => (
@@ -18,11 +19,6 @@ const Products = () => {
             }
         </Grid>
     </main>
-
-    return (
-        <div>
-            
-        </div>
     )
 }
 

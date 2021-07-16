@@ -1,7 +1,11 @@
 import React from "react";
+import Products from "./components/Products"
 
 function App() {
-  return <h1>E - Shop</h1>;
+  return <>
+  E - Shop
+  <Products />
+  </>;
 }
 
 export default App;
