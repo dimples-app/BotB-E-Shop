@@ -1,9 +1,10 @@
 import React from "react";
-import Products from "./components/Products"
+import { Products, Navbar}  from "./components"
 
 function App() {
   return <>
   E - Shop
+  <Navbar />
   <Products />
   </>;
 }
