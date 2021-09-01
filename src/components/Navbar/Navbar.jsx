@@ -3,8 +3,10 @@ import React from 'react'
 import { ShoppingCart} from '@material-ui/icons'
 import logo from '../../Assets/e-shop.png'
 import { classes } from 'istanbul-lib-coverage'
+import useStyles from "./styles.js"
 
 function Navbar() {
+    const classes = useStyles();
     return (
         <>
             <AppBar position="fixed" className={classes.appBar} color="inherit">
