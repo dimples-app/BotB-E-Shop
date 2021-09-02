@@ -4,6 +4,7 @@ import {commerce} from "./lib/commerce"
 
 function App() {
   const [products, setProducts] = useState([])
+  const [cart, setCart] = useState({})
 
   /**
    * function to fetch product
@@ -15,19 +16,32 @@ function App() {
   }
 
   /**
+   * fetch cart
+   */
+  const fetchCart = async() => {
+    const cart = await commerce.cart.retrieve();
+    setCart(cart);
+  }
+
+ const handleAddToCart = async(productId, quantity) => {
+    const itemsInCart = await commerce.cart.add(productId, quantity)
+    setCart(itemsInCart.cart)
+ }
+ 
+  /**
    * UseEffect to call fetchcall without side effects
    */
   useEffect(() => {
     fetchProducts();
+    fetchCart();
   }, [])
-
-  console.log(products)
-
+  
+  console.log("cart", cart)
   return <>
-  E - Shop
-  <Navbar />
-  <Products products ={products} />
-  </>;
+    E - Shop
+      <Navbar totalItemsInCart={cart.total_items}/>
+      <Products products ={products} handleAddToCart ={handleAddToCart} />
+    </>;
 }
 
 export default App;

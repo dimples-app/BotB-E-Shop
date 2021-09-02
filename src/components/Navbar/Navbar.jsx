@@ -5,7 +5,7 @@ import logo from '../../Assets/e-shop.png'
 import { classes } from 'istanbul-lib-coverage'
 import useStyles from "./styles.js"
 
-function Navbar() {
+function Navbar({totalItemsInCart}) {
     const classes = useStyles();
     return (
         <>
@@ -18,7 +18,7 @@ function Navbar() {
                     <div className={classes.grow} />
                     <div className={classes.button} >
                         <IconButton aria-label="Show cart items" color="inherit" >
-                            <Badge badgeContent={2} color="secondary" >
+                            <Badge badgeContent={totalItemsInCart} color="secondary" >
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>
