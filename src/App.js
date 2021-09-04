@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from "react";
 import { Products, Navbar, Cart}  from "./components"
 import {commerce} from "./lib/commerce"
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   const [products, setProducts] = useState([])
@@ -38,12 +39,15 @@ function App() {
   }, [])
   
   console.log("cart", cart)
-  return <>
+  return ( 
+   <>
+
     E - Shop
       <Navbar totalItemsInCart={cart.total_items}/>
-      {/* <Products products ={products} handleAddToCart ={handleAddToCart} /> */}
+      {/* {<Products products ={products} handleAddToCart ={handleAddToCart} />} */}
       <Cart cart={cart}/>
-    </>;
+    </>
+  )
 }
 
 export default App;
