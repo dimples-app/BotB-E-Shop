@@ -1,5 +1,6 @@
+//import { Cart } from "@chec/commerce.js/features/cart";
 import React, {useEffect, useState} from "react";
-import { Products, Navbar}  from "./components"
+import { Products, Navbar, Cart}  from "./components"
 import {commerce} from "./lib/commerce"
 
 function App() {
@@ -40,7 +41,8 @@ function App() {
   return <>
     E - Shop
       <Navbar totalItemsInCart={cart.total_items}/>
-      <Products products ={products} handleAddToCart ={handleAddToCart} />
+      {/* <Products products ={products} handleAddToCart ={handleAddToCart} /> */}
+      <Cart cart={cart}/>
     </>;
 }
 
