@@ -40,13 +40,26 @@ function App() {
   
   console.log("cart", cart)
   return ( 
-   <>
-
+   <div>
     E - Shop
+     <Router>
       <Navbar totalItemsInCart={cart.total_items}/>
-      {/* {<Products products ={products} handleAddToCart ={handleAddToCart} />} */}
-      <Cart cart={cart}/>
-    </>
+
+       <Switch>
+
+          <Route exact path="/">
+              <Products products ={products} handleAddToCart ={handleAddToCart} />
+          </Route>
+
+          <Route exact path="/cart">
+              <Cart cart={cart}/>
+          </Route>
+
+       </Switch>
+
+
+     </Router>
+    </div>
   )
 }
 

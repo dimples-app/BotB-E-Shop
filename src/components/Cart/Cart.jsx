@@ -5,7 +5,7 @@ import useStyles from "./styles"
 import Cartitem from './Cartitem/Cartitem';
 
 function Cart({cart}) {
-    const isEmpty = true;
+    //const isEmpty = true;
 
     const classes = useStyles();
 
