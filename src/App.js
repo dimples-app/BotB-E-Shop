@@ -26,10 +26,51 @@ function App() {
     setCart(cart);
   }
 
+  /**
+   * Handle add items to cart
+   * @param {*} productId 
+   * @param {*} quantity 
+   */
  const handleAddToCart = async(productId, quantity) => {
-    const itemsInCart = await commerce.cart.add(productId, quantity)
-    setCart(itemsInCart.cart)
+    // const itemsInCart = await commerce.cart.add(productId, quantity)
+    // setCart(itemsInCart.cart)
+    const {cart} = await commerce.cart.add(productId, quantity)
+    setCart(cart);
  }
+
+ /**
+  * Update Cart Quantity
+  * @param {} productId 
+  * @param {*} quantity 
+  */
+ const handleUpdateCartQuantity = async(productId, quantity) => { 
+  //const updatedItemsInCart = await commerce.cart.update(productId, {quantity})
+  const {cart} = await commerce.cart.update(productId, {quantity})
+  //setCart(updatedItemsInCart.cart)
+  setCart(cart)
+
+ }
+
+/**
+ * Remove from cart
+ * @param {*} productId 
+ */
+const handleRemoveFromCart = async(productId) => { 
+  // const removeItemsFromCart = await commerce.cart.update(productId);
+  // setCart(removeItemsFromCart.cart)
+  const {cart} = await commerce.cart.remove(productId);
+  setCart(cart);
+}
+
+/**
+ * empty cart
+ */
+const handleEmptyCart = async() => { 
+  // const emptyCart = await commerce.cart.empty();
+  // setCart(emptyCart.cart)
+  const {cart} = await commerce.cart.empty();
+  setCart(cart)
+}
  
   /**
    * UseEffect to call fetchcall without side effects
@@ -53,7 +94,12 @@ function App() {
           </Route>
 
           <Route exact path="/cart">
-              <Cart cart={cart}/>
+              <Cart 
+              cart={cart}
+              handleUpdateCartQuantity={handleUpdateCartQuantity}
+              handleRemoveFromCart={handleRemoveFromCart}
+              handleEmptyCart={handleEmptyCart}
+              />
           </Route>
 
        </Switch>
