@@ -3,6 +3,7 @@ import { Typography, Button, Grid, Container } from '@material-ui/core'
 import { classes } from 'istanbul-lib-coverage'
 import useStyles from "./styles"
 import Cartitem from './Cartitem/Cartitem';
+import {Link} from "react-router-dom"
 
 function Cart({cart}) {
     //const isEmpty = true;
@@ -12,7 +13,9 @@ function Cart({cart}) {
     if (!cart.line_items) return "loading..."
 
     const EmptyCart = () => {
-        <Typography variant="subtitle1"> Your Cart is empty. Add to cart</Typography>
+        <Typography variant="subtitle1"> Your Cart is empty. 
+            <Link to = "/" className={classes.link}> Add to cart! </Link>
+        </Typography>
     }
 
     const FilledCart = () => (

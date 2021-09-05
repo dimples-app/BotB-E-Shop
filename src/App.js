@@ -4,6 +4,7 @@ import { Products, Navbar, Cart}  from "./components"
 import {commerce} from "./lib/commerce"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+
 function App() {
   const [products, setProducts] = useState([])
   const [cart, setCart] = useState({})
