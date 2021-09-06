@@ -1,9 +1,8 @@
 //import { Cart } from "@chec/commerce.js/features/cart";
 import React, {useEffect, useState} from "react";
-import { Products, Navbar, Cart}  from "./components"
+import { Products, Navbar, Cart, Checkout}  from "./components"
 import {commerce} from "./lib/commerce"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 
 function App() {
   const [products, setProducts] = useState([])
@@ -100,6 +99,10 @@ const handleEmptyCart = async() => {
               handleRemoveFromCart={handleRemoveFromCart}
               handleEmptyCart={handleEmptyCart}
               />
+          </Route>
+
+          <Route exact path="/checkout">
+              <Checkout  />
           </Route>
 
        </Switch>

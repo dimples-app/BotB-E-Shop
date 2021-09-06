@@ -46,7 +46,7 @@ function Cart({cart, handleUpdateCartQuantity, handleRemoveFromCart, handleEmpty
                     </Button>
 
                     <Button
-                        className={classes.emptyButton}
+                        className={classes.checkoutButton}
                         size="large"
                         type="button"
                         variant="contained"
