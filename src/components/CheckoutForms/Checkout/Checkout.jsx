@@ -11,6 +11,7 @@ function Checkout({cart}) {
     const steps = ['Shipping address', 'Payment details'];
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(0)
+    const [shippingData, setShippingData] = useState({})
     const classes = useStyles();
 
     useEffect(() => {
@@ -26,16 +27,27 @@ function Checkout({cart}) {
         generateToken();
     }, [cart])
 
+    //next step
+    const nextStep = () => setActiveStep((previousActiveStep) => previousActiveStep + 1)
+
+    //back step
+    const backStep = () => setActiveStep((previousActiveStep) => previousActiveStep - 1)
+
+    //pass shipping data to 
+    const next = (data) => {
+        setShippingData(data);
+        nextStep();
+    }
+
     const ConfirmationForm = () => (
         <div>
             Confirmation
         </div>
     );
 
-    const Form = () => (activeStep === 0 ? <AddressForm checkoutToken={checkoutToken}/> : <PaymentForm /> )
+    const Form = () => (activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next}/> : <PaymentForm shippingData={shippingData} /> )
 
     return (
-
         <>
         <div className={classes.toolbar} />
             <main className={classes.layout}>
