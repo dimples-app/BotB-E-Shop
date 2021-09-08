@@ -6,7 +6,7 @@ import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 import {commerce} from '../../../lib/commerce'
 
-function Checkout({cart}) {
+function Checkout({cart, order, onCaptureCheckout, error}) {
 
     const steps = ['Shipping address', 'Payment details'];
     const [activeStep, setActiveStep] = useState(0);
@@ -50,8 +50,10 @@ function Checkout({cart}) {
             <PaymentForm 
                 shippingData={shippingData} 
                 checkoutToken={checkoutToken} 
+                nextStep ={nextStep}
                 backStep={backStep}
                 shippingData={shippingData}
+                onCaptureCheckout={onCaptureCheckout}
             /> )
 
     return (

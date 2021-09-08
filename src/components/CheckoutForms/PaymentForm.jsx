@@ -5,7 +5,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import Review from './Review';
 
 
-export function PaymentForm({checkoutToken, shippingData, backStep}) {
+export function PaymentForm({checkoutToken, shippingData, backStep, nextStep, onCaptureCheckout}) {
 
     const stripePromise = loadStripe(process.env.REACT_APP_SRIPE_PUBLIC_KEY);
 
@@ -33,6 +33,8 @@ export function PaymentForm({checkoutToken, shippingData, backStep}) {
                     },
                 },
             };
+            onCaptureCheckout(checkoutToken.id, orderData);
+            nextStep();
         }
     }
     return (
