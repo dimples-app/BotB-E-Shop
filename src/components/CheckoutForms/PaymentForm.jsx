@@ -9,6 +9,7 @@ export function PaymentForm({checkoutToken, shippingData, backStep, nextStep, on
 
     const stripePromise = loadStripe(process.env.REACT_APP_SRIPE_PUBLIC_KEY);
 
+    // handle submit payment
     const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault();
 

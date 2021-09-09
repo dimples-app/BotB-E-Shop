@@ -11,6 +11,7 @@ function Cart({cart, handleUpdateCartQuantity, handleRemoveFromCart, handleEmpty
 
     if (!cart.line_items) return "loading..."
 
+    // empty cart
     const EmptyCart = () => {
         return (
         <Typography variant="subtitle1"> Your Cart is empty. 
@@ -19,6 +20,7 @@ function Cart({cart, handleUpdateCartQuantity, handleRemoveFromCart, handleEmpty
         )
     }
 
+    /** render cart with items */
     const FilledCart = () => (
         
         <>

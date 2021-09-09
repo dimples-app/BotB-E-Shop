@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Typography, Badge, MenuItem, Menu, IconButton } from '@material-ui/core'
 import React from 'react'
 import { ShoppingCart} from '@material-ui/icons'
-import logo from '../../Assets/e-shop.png'
+import logo from '../../Assets/Bot-B.png'
 import { classes } from 'istanbul-lib-coverage'
 import useStyles from "./styles.js"
 import {Link} from "react-router-dom"
@@ -16,7 +16,7 @@ function Navbar({totalItemsInCart}) {
                 <Toolbar>
                     <Typography component ={Link} to="/" variant="h6" className={classes.title} color="inherit">
                         <img src={logo} alt="Commerce.js" height="25px" className={classes.image} />
-                          E-Shop
+                          BotB - E-Shop
                     </Typography>
                     <div className={classes.grow} />
                     { location.pathname === "/" && (
