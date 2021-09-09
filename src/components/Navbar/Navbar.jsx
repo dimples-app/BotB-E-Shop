@@ -16,7 +16,7 @@ function Navbar({totalItemsInCart}) {
                 <Toolbar>
                     <Typography component ={Link} to="/" variant="h6" className={classes.title} color="inherit">
                         <img src={logo} alt="Commerce.js" height="25px" className={classes.image} />
-                          BotB - E-Shop
+                          BotB - Shop Online
                     </Typography>
                     <div className={classes.grow} />
                     { location.pathname === "/" && (
