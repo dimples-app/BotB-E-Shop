@@ -23,8 +23,7 @@ function App() {
    * fetch cart
    */
   const fetchCart = async() => {
-    const cart = await commerce.cart.retrieve();
-    setCart(cart);
+    setCart(await commerce.cart.retrieve());
   }
 
   /**
@@ -35,8 +34,8 @@ function App() {
  const handleAddToCart = async(productId, quantity) => {
     // const itemsInCart = await commerce.cart.add(productId, quantity)
     // setCart(itemsInCart.cart)
-    const {cart} = await commerce.cart.add(productId, quantity)
-    setCart(cart);
+    const response = await commerce.cart.add(productId, quantity)
+    setCart(response.cart);
  }
 
  /**
@@ -46,9 +45,9 @@ function App() {
   */
  const handleUpdateCartQuantity = async(productId, quantity) => { 
   //const updatedItemsInCart = await commerce.cart.update(productId, {quantity})
-  const {cart} = await commerce.cart.update(productId, {quantity})
+  const response = await commerce.cart.update(productId, {quantity})
   //setCart(updatedItemsInCart.cart)
-  setCart(cart)
+  setCart(response.cart)
 
  }
 
@@ -59,18 +58,20 @@ function App() {
 const handleRemoveFromCart = async(productId) => { 
   // const removeItemsFromCart = await commerce.cart.update(productId);
   // setCart(removeItemsFromCart.cart)
-  const {cart} = await commerce.cart.remove(productId);
-  setCart(cart);
+  const response = await commerce.cart.remove(productId);
+   setCart(response.cart);
 }
 
 /**
  * empty cart
  */
 const handleEmptyCart = async() => { 
-  // const emptyCart = await commerce.cart.empty();
-  // setCart(emptyCart.cart)
-  const {cart} = await commerce.cart.empty();
-  setCart(cart)
+
+  const response = await commerce.cart.empty();
+  setCart(response.cart);
+  // const {cart} = await commerce.cart.empty();
+  // setCart(cart)
+  
 }
 
 /**

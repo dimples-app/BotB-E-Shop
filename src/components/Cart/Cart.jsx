@@ -1,6 +1,5 @@
 import React from 'react'
 import { Typography, Button, Grid, Container } from '@material-ui/core'
-import { classes } from 'istanbul-lib-coverage'
 import useStyles from "./styles"
 import Cartitem from './Cartitem/Cartitem';
 import {Link} from "react-router-dom"
@@ -13,13 +12,15 @@ function Cart({cart, handleUpdateCartQuantity, handleRemoveFromCart, handleEmpty
     if (!cart.line_items) return "loading..."
 
     const EmptyCart = () => {
+        return (
         <Typography variant="subtitle1"> Your Cart is empty. 
             <Link to = "/" className={classes.link}> Add to cart! </Link>
         </Typography>
+        )
     }
 
     const FilledCart = () => (
-
+        
         <>
             <Grid container spacing={3}>
                 {cart.line_items.map((item) => (
@@ -56,8 +57,6 @@ function Cart({cart, handleUpdateCartQuantity, handleRemoveFromCart, handleEmpty
                         Checkout
                     </Button>
                 </div>
-
-
             </div>
 
         </>
@@ -68,7 +67,7 @@ function Cart({cart, handleUpdateCartQuantity, handleRemoveFromCart, handleEmpty
             <div className = {classes.toolbar} />
 
             <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
-            {!cart.line_items.length ? <EmptyCart />  : <FilledCart /> }
+            {!cart.line_items.length ? EmptyCart() : FilledCart() }
             
         </Container>
     )
