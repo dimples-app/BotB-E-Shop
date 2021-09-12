@@ -6,4 +6,4 @@ Description : E-commerse store for shopping bots.
    - MaterialUI
 
 # Image
-![Home]()
+![Home](https://github.com/dimples-app/BotB-Shop/blob/master/src/Assets/Home.png)
