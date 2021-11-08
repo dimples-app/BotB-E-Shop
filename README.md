@@ -1,5 +1,6 @@
 # Project: BotB - Online Shopping 
-Description : E-commerse store for shopping bots.
+
+Description : E-commerce store for shopping bots.
 
 # Tech Stack:
    - React
